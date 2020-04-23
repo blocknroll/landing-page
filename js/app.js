@@ -13,34 +13,30 @@
  *
 */
 
-/**
- * Define Global Variables
- *
-*/
 
+// Create the NAV
 
-
-
-
-
-
-
-
-
-// NAV <ul>
+// first access the NAV <ul>
+// we'll append <li>'s to it next...
 const navbarList = document.getElementById("navbar__list");
 
-// select all sections
+// start creating <li> links //////////////////////
+// first, select all sections, save in a variable
 const sections = document.getElementsByTagName("section");
 
-// loop through sections - create li's
+// loop through those sections and make a link from each
 for (const section of sections) {
-  // create li
+  // create the <li> element
   const newLi = document.createElement("li");
-  // grab text of section.id
-  const textOfLi = document.createTextNode(section.id);
-  // add section.id to li
-  newLi.appendChild(textOfLi);
+
+  // grab the section's title from the <h2>
+  // we'll use it for the button text
+  const title = section.querySelector("h2");
+
+  // add HTML to li
+  newLi.insertAdjacentHTML("afterbegin",
+                           "<a href='#" + section.id +
+                           "'>" + title.innerText + "</a>");
   // add newLi to nav ul
   navbarList.appendChild(newLi);
 }
@@ -50,16 +46,15 @@ for (const section of sections) {
 
 
 
-
-
-
-
-
-
+/**
+ * Define Global Variables
+ *
+*/
 
 
 /**
  * End Global Variables
+
 
 
  * Start Helper Functions
@@ -70,6 +65,7 @@ for (const section of sections) {
 
 /**
  * End Helper Functions
+
 
 
  * Begin Main Functions
@@ -87,6 +83,9 @@ for (const section of sections) {
 
 /**
  * End Main Functions
+
+
+
  * Begin Events
  *
 */
