@@ -35,14 +35,14 @@ for (const section of sections) {
 
   // add HTML to li
   newLi.insertAdjacentHTML("afterbegin",
-                           "<a href='#" + section.id +
-                           "'>" + title.innerText + "</a>");
+                           '<a href="#' + section.id + '" class="menu__link">' + 
+                           title.innerText + '</a>');
   // add newLi to nav ul
   navbarList.appendChild(newLi);
 }
 
 
-
+// .menu__link
 
 
 
