@@ -9,12 +9,22 @@
  *
  * JS Version: ES2015/ES6
  *
+ * jshint esversion: 6 *
+ *
  * JS Standard: ESlint
  *
 */
 
+/*jshint esversion: 6 */
 
-// Create the NAV
+
+
+
+
+
+
+
+// Create the NAV /////////////////////////////////////
 
 // first access the NAV <ul>
 // we'll append <li>'s to it next...
@@ -33,16 +43,57 @@ for (const section of sections) {
   // we'll use it for the button text
   const title = section.querySelector("h2");
 
-  // add HTML to li
+  // add HTML to <li>
   newLi.insertAdjacentHTML("afterbegin",
-                           '<a href="#' + section.id + '" class="menu__link">' + 
+                           '<a href="#' + section.id + '" class="menu__link">' +
                            title.innerText + '</a>');
-  // add newLi to nav ul
+  // add newLi to <nav> <ul>
   navbarList.appendChild(newLi);
 }
 
 
-// .menu__link
+
+
+// VIEWPORT /////////////////////////////////
+
+// helper function: check if element is > 50% in viewport
+function isInViewport(element) {
+  let rect = element.getBoundingClientRect();
+  return (
+    rect.top < (window.innerHeight / 2) &&
+    rect.bottom >= (window.innerHeight / 2)
+  );
+}
+
+// find all sections. for each loop:
+    // add an eventLister for scrolling
+    // check if in viewport
+    // add/remove class if in viewport
+document.querySelectorAll("section").forEach(section => {
+  window.addEventListener("scroll", function() {
+    if ( isInViewport(section) === true ) {
+      section.className = "active";
+    } else {
+      section.className = "inactive";
+    }
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -89,9 +140,3 @@ for (const section of sections) {
  * Begin Events
  *
 */
-
-// Build menu
-
-// Scroll to section on link click
-
-// Set sections as active
