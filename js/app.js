@@ -15,12 +15,6 @@
  *
 */
 
-/*jshint esversion: 6 */
-
-
-
-
-
 
 
 
@@ -45,7 +39,8 @@ for (const section of sections) {
 
   // add HTML to <li>
   newLi.insertAdjacentHTML("afterbegin",
-                           '<a href="#' + section.id + '" class="menu__link">' +
+                           '<a href="#' + section.id + '" target="#' +
+                           section.id + '" class="menu__link">' +
                            title.innerText + '</a>');
   // add newLi to <nav> <ul>
   navbarList.appendChild(newLi);
@@ -54,7 +49,7 @@ for (const section of sections) {
 
 
 
-// VIEWPORT /////////////////////////////////
+// IN VIEWPORT HIGHLIGHT /////////////////////////////////
 
 // helper function: check if element is > 50% in viewport
 function isInViewport(element) {
@@ -66,7 +61,7 @@ function isInViewport(element) {
 }
 
 // find all sections. for each loop:
-    // add an eventLister for scrolling
+    // add an eventListener for scrolling
     // check if in viewport
     // add/remove class if in viewport
 document.querySelectorAll("section").forEach(section => {
@@ -80,6 +75,24 @@ document.querySelectorAll("section").forEach(section => {
 });
 
 
+
+
+// SCROLL TO LINKS ///////////////////////////////////////
+
+function scrollTo(element) {
+  window.scroll({
+    behavior: 'smooth',
+    left: 0,
+    top: element.offsetTop
+  });
+}
+
+document.querySelectorAll("a").forEach( (a) => {
+  a.addEventListener("click", () => {
+    event.preventDefault();
+    scrollTo( document.querySelector( a.target ) );
+  });
+});
 
 
 
