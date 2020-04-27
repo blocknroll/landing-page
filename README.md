@@ -1,13 +1,23 @@
 # Landing Page Project
 
-## Table of Contents
+## Project Goal
 
-* [Instructions](#instructions)
+This project uses JavaScript to make a static page more dynamic.
 
-## Instructions
+## Features
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+* [__Navigation__
+  The navigation menu is built dynamically.
+  It grabs all the sections on the page,
+  makes a link for each one,
+  and adds it to an unordered list.]
 
-To get started, open `js/app.js` and start building out the app's functionality
+* [__Scroll to Anchor__
+  When clicking an item from the nav menu,
+  the link will scroll to the appropriate section.]
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+* [__Section Active State__
+  While scrolling through the page,
+  the section most visible in the viewport
+  is highlighted, while the inactive sections
+  are dimmed.]
