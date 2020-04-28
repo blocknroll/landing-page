@@ -85,6 +85,10 @@ section {
     color: #000;
 }
 
+.menu__link.activeLink {
+  color: gray;
+}
+
 .navbar__menu .menu__link:hover {
     background: #333;
     color: #fff;

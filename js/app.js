@@ -39,7 +39,8 @@ function createNav () {
 
     // add HTML to <li>
     newLi.insertAdjacentHTML("afterbegin",
-                             '<a href="#' + section.id + '" target="#' +
+                             '<a href="#' + section.id +
+                             '" id="' + section.id + 'Link" target="#' +
                              section.id + '" class="menu__link">' +
                              title.innerText + '</a>');
     // add newLi to <nav> <ul>
@@ -59,8 +60,8 @@ createNav();
 
 
 
-// IN VIEWPORT HIGHLIGHT //////////////////////////////////
-// Add class 'active' to section when near top of viewport
+
+// IN VIEWPORT HIGHLIGHTS //////////////////////////////////
 
 // helper function: check if element is > 50% in viewport
 function isInViewport(element) {
@@ -71,16 +72,21 @@ function isInViewport(element) {
   );
 }
 
-// find all sections. for each loop:
+// find all sections – for each loop:
+    // find the link associated with that section
     // add an eventListener for scrolling
-    // check if in viewport
-    // add/remove class if in viewport
+    //    check if in viewport
+    //    add/remove class of section + link
 document.querySelectorAll("section").forEach(section => {
+  const link = document.querySelector('#' + section.id + 'Link');
+
   window.addEventListener("scroll", () => {
     if ( isInViewport(section) === true ) {
       section.className = "active";
+      link.classList.add("activeLink");
     } else {
       section.className = "inactive";
+      link.classList.remove("activeLink");
     }
   });
 });
