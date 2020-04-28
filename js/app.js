@@ -119,3 +119,28 @@ document.querySelectorAll("section").forEach(section => {
     }
   });
 });
+
+
+
+
+
+
+// SCROLL TO TOP ////////////////////////////////////////
+
+const hero = document.querySelector(".main__hero");
+const scrollToTopButton = document.querySelector("#scrollToTopButton");
+
+function aboveFold(element) {
+  let rect = element.getBoundingClientRect();
+  return (
+    rect.bottom < (window.innerHeight - 800)
+  );
+}
+
+window.addEventListener("scroll", () => {
+  if ( aboveFold(hero) === true ) {
+    scrollToTopButton.style.visibility = "visible";
+  } else {
+    scrollToTopButton.style.visibility = "hidden";
+  }
+});
