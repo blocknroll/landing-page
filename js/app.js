@@ -24,7 +24,7 @@ function createNav () {
   // we'll append <li>'s to it next...
   const navbarList = document.getElementById("navbar__list");
 
-  // start creating <li> links //////////////////////
+  // start creating <li> links /////////
   // first, select all sections, save in a variable
   const sections = document.getElementsByTagName("section");
 
@@ -46,16 +46,45 @@ function createNav () {
     // add newLi to <nav> <ul>
     navbarList.appendChild(newLi);
   }
-
-  // Scroll to anchor ID
-  document.querySelectorAll("a").forEach( a => {
-    a.addEventListener("click", () => {
-      event.preventDefault();
-      document.querySelector( a.target ).scrollIntoView( {behavior: "smooth"} );
-    });
-  });
 }
 createNav();
+
+
+
+
+
+
+// Scroll to anchor ID ///////////////////////////////
+document.querySelectorAll("a").forEach( a => {
+  a.addEventListener("click", () => {
+    event.preventDefault();
+    document.querySelector( a.target ).scrollIntoView( {behavior: "smooth"} );
+  });
+});
+
+
+
+
+
+
+// HIDING NAVBAR //////////////////////////////////////
+let isScrolling;
+
+// add scroll event
+window.addEventListener("scroll", () => {
+
+  // while scrolling: clear timeout + display <nav>
+  window.clearTimeout( isScrolling );
+  document.querySelector("nav").style.display = "block";
+
+  // set timeout to run after scrolling ends
+  isScrolling = setTimeout( () => {
+    // callback actions
+    document.querySelector("nav").style.display = "none";
+  }, 2*1000);  // delay 2 seconds before running
+
+});
+
 
 
 
