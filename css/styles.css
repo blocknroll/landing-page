@@ -115,6 +115,24 @@ section {
     color: #fff;
 }
 
+#scrollToTopButton {
+  color: black;
+  padding: 14px;
+  background-color: white;
+  text-decoration: none;
+  visibility: hidden;
+}
+
+.button-float {
+  position: fixed;
+  bottom: 14px;
+  right: 0px;
+}
+
+
+
+
+
 
 /* ---- Theme Rules ---- */
 /* Landing Container Styles */
