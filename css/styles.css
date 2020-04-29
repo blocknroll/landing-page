@@ -67,7 +67,7 @@ section {
     display: flex;
     flex-direction: row;
     font-family: 'Oxygen', Sans-Serif;
-    font-size: 1.1em;
+    font-size: 0.9em;
     justify-content: center;
     margin: 0;
     padding-left: 0;
@@ -79,7 +79,7 @@ section {
 
 .navbar__menu .menu__link {
     display: block;
-    padding: .5em;
+    padding: .4em;
     font-weight: bold;
     text-decoration: none;
     color: #000;
